@@ -50,7 +50,9 @@
      <Compile Include="Assets\v2Scripts\Arrangement.cs" />
      <Compile Include="Assets\v2Scripts\FloorplanData.cs" />
      <Compile Include="Assets\v2Scripts\Furnishing.cs" />
-     <Compile Include="Assets\v2Scripts\moving.cs" />
+     <Compile Include="Assets\v2Scripts\InRoomRetrival.cs" />
+     <Compile Include="Assets\v2Scripts\Moving.cs" />
+     <Compile Include="Assets\v2Scripts\Populating.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
