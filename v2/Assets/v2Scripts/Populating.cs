@@ -55,20 +55,31 @@ public class Populating : MonoBehaviour {
 
 		Vector3 randomPosition=getRandomPosition();
 
-		//currentObject=Clone(randomPosition);
-		counter++;
-		Debug.Log("counter="+counter);
-		
-		currentObject=(GameObject)Instantiate(dummy, transform.position+randomPosition, transform.rotation);//TODO rotation etc.
-		currentObject.gameObject.layer=9;//the Layer 8 is the floorplan meshes
-		
-		//Write into the inRoomRetrival class
-		InRoomRetrival.Instance.Tier1Check[counter]=true;//seems useless..in this class, as I have set a counter; ?_?
-		InRoomRetrival.Instance.Tier1Data[counter,0]=currentObject.collider.bounds.center;
-		//		Debug.Log("clone.collider.bounds.center"+clone.collider.bounds.center);
-		Debug.Log("Write in: InRoomRetrival.Instance.Tier1Data["+counter+",0]="+InRoomRetrival.Instance.Tier1Data[counter,0]);
-		InRoomRetrival.Instance.Tier1Data[counter,1]=currentObject.collider.bounds.extents;
-		currentObject.name="first";
+		currentObject=Clone(randomPosition);
+//		//-----------------------------------Changed for the first cube bug-------------------------------
+//		counter++;
+//		Debug.Log("counter="+counter);
+//		
+//		currentObject=(GameObject)Instantiate(dummy, transform.position+randomPosition, transform.rotation);//TODO rotation etc.
+//		currentObject.gameObject.layer=9;//the Layer 8 is the floorplan meshes
+//
+//		/**
+//		 * If I didn't write in, the second cube will have the "first cube problem" :(
+//		 */
+//		//Write into the inRoomRetrival class
+//		InRoomRetrival.Instance.Tier1Check[counter]=true;//seems useless..in this class, as I have set a counter; ?_?
+//		InRoomRetrival.Instance.Tier1Data[counter,0]=currentObject.collider.bounds.center;
+//		//		Debug.Log("clone.collider.bounds.center"+clone.collider.bounds.center);
+//		Debug.Log("Write in: InRoomRetrival.Instance.Tier1Data["+counter+",0]="+InRoomRetrival.Instance.Tier1Data[counter,0]);
+//		InRoomRetrival.Instance.Tier1Data[counter,1]=currentObject.collider.bounds.extents;
+//
+//		/** Solution 1: To destroy it later
+//		currentObject.name="dummy";
+//		*/
+//
+//		//Solution 2 change render.enable to false
+//		currentObject.renderer.enabled=false;
+//		//-------------------------------------------------------------------------------------------------
 
 	}
 
@@ -107,7 +118,6 @@ public class Populating : MonoBehaviour {
 
 		if(Input.GetKeyDown(KeyCode.Space) || isSearching){
 			isSearching=true;
-
 			Vector3 randomPosition=getRandomPosition();
 			if( Retrival(randomPosition) ){
 				currentObject=Clone(randomPosition);
@@ -120,7 +130,7 @@ public class Populating : MonoBehaviour {
 
 		if(Input.GetKeyDown(KeyCode.K)){
 			isSearching=false;
-			Destroy(GameObject.Find("first"));
+			//Destroy(GameObject.Find("dummy"));
 			for(int i=0;i<=counter;i++){
 				Debug.Log("Cube"+i+" centre: "+InRoomRetrival.Instance.Tier1Data[i,0]);
 			}
