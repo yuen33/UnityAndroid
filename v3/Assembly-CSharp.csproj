@@ -46,8 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Autofurnishing\scripts\Gamestate.cs" />
      <Compile Include="Assets\Autofurnishing\scripts\InRoomRetrival.cs" />
      <Compile Include="Assets\Autofurnishing\scripts\Populating.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\PrefabsManager.cs" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
