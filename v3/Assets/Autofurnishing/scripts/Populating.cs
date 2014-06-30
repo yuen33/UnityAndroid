@@ -3,7 +3,6 @@ using System.Collections;
 
 
 public class Populating : MonoBehaviour {
-	public GameObject dummy;
 	public GameObject mycube;
 //	public GameObject room;
 	//TODO: get the unknown prefab extents
@@ -60,7 +59,8 @@ public class Populating : MonoBehaviour {
 		counter++;
 		Debug.Log("counter="+counter);
 		
-		currentObject=(GameObject)Instantiate(dummy, transform.position+randomPosition, transform.rotation);//TODO rotation etc.
+		currentObject=(GameObject)Instantiate(mycube, transform.position+randomPosition, transform.rotation);//TODO rotation etc.
+		currentObject.renderer.material.color=Color.red;
 		currentObject.gameObject.layer=9;//the Layer 8 is the floorplan meshes
 
 		/**
@@ -78,7 +78,7 @@ public class Populating : MonoBehaviour {
 		*/
 
 		//Solution 2 change render.enable to false
-		currentObject.renderer.enabled=false;
+//		currentObject.renderer.enabled=false;
 		//-------------------------------------------------------------------------------------------------
 
 	}
@@ -87,7 +87,7 @@ public class Populating : MonoBehaviour {
 		Debug.Log("*********************************is Searching...***************************************");
 
 		//whether it is in allocated arena
-		for(int i=1;i<=counter;i++){
+		for(int i=0;i<=counter;i++){
 			Vector3 CentresDistance= InRoomRetrival.Instance.Tier1Data[i,0]-randomPosition;
 			Vector3 fetchedExtents= InRoomRetrival.Instance.Tier1Data[i,1];
 
@@ -131,7 +131,7 @@ public class Populating : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.K)){
 			isSearching=false;
 			//Destroy(GameObject.Find("dummy"));
-			for(int i=1;i<=counter;i++){
+			for(int i=0;i<=counter;i++){
 				Debug.Log("Cube"+i+" centre: "+InRoomRetrival.Instance.Tier1Data[i,0]);
 			}
 		}

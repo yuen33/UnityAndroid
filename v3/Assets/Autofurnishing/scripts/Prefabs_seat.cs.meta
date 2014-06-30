@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 4c7d82f293d4f4b6eaa20cc358599f25
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - BigPiece: {fileID: 100000, guid: e0750bf5493904a868621f139b2bb76e, type: 2}
+  - Seat: {fileID: 100000, guid: eb2e08fda84b249d2bb443111ba284c5, type: 2}
+  - SmallPiece: {instanceID: 0}
+  - Plane: {instanceID: 0}
+  executionOrder: 200
+  icon: {instanceID: 0}
+  userData: 
