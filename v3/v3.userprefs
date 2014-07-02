@@ -1,11 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Autofurnishing/scripts/Prefabs_seat.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Autofurnishing/scripts/PopulatingVer4.cs">
     <Files>
-      <File FileName="Assets/Autofurnishing/scripts/PopulatingVer2.cs" Line="52" Column="50" />
-      <File FileName="Assets/Autofurnishing/scripts/Populating.cs" Line="48" Column="17" />
-      <File FileName="Assets/Autofurnishing/scripts/InRoomRetrival.cs" Line="12" Column="20" />
-      <File FileName="Assets/Autofurnishing/scripts/Prefabs_seat.cs" Line="17" Column="25" />
+      <File FileName="Assets/Autofurnishing/scripts/PopulatingVer3.cs" Line="2" Column="26" />
+      <File FileName="Assets/Autofurnishing/scripts/Populating.cs" Line="1" Column="1" />
+      <File FileName="Assets/Autofurnishing/scripts/InRoomRetrival.cs" Line="1" Column="1" />
+      <File FileName="Assets/Autofurnishing/scripts/PopulatingVer4.cs" Line="110" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

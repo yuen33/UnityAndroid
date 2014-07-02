@@ -88,7 +88,7 @@ public class Populating : MonoBehaviour {
 
 		//whether it is in allocated arena
 		for(int i=0;i<=counter;i++){
-			Vector3 CentresDistance= InRoomRetrival.Instance.Tier1Data[i,0]-randomPosition;
+			Vector3 CentresDistance= InRoomRetrival.Instance.Tier1Data[i,0]-randomPosition;//Dij
 			Vector3 fetchedExtents= InRoomRetrival.Instance.Tier1Data[i,1];
 
 //			Debug.Log("Read in: InRoomRetrival.Instance.Tier1Check[counter]="+InRoomRetrival.Instance.Tier1Check[i]);

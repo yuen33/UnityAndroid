@@ -44,6 +44,7 @@
 'Assets/Autofurnishing/scripts/Populating.cs'
 'Assets/Autofurnishing/scripts/PopulatingVer2.cs'
 'Assets/Autofurnishing/scripts/PopulatingVer3.cs'
+'Assets/Autofurnishing/scripts/PopulatingVer4.cs'
 'Assets/Autofurnishing/scripts/Prefabs_seat.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'

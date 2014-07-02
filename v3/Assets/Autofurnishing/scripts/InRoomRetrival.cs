@@ -16,6 +16,8 @@ public class InRoomRetrival : MonoBehaviour {
 	public static int MAX_NumOfT1=20;
 	public static int MAX_InfoItems=3;
 	public bool[] Tier1Check= new bool[MAX_NumOfT1];
+	public int[] Tier1Overlaps= new int[MAX_NumOfT1];
+	public double[] Tier1Cost= new double[MAX_NumOfT1];
 	public Vector3[,] Tier1Data= new Vector3[MAX_NumOfT1,MAX_InfoItems];
 
 
