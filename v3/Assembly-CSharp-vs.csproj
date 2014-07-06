@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Autofurnishing\scripts\InRoomRetrival.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\Moving.cs" />
      <Compile Include="Assets\Autofurnishing\scripts\Populating.cs" />
      <Compile Include="Assets\Autofurnishing\scripts\PopulatingVer2.cs" />
      <Compile Include="Assets\Autofurnishing\scripts\PopulatingVer3.cs" />

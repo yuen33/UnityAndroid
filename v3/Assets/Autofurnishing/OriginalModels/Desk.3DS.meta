@@ -1,0 +1,183 @@
+fileFormatVersion: 2
+guid: 050af4aab881745e78f0523b3c65c199
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Box01
+    100002: Box02
+    100004: Box03
+    100006: Box04
+    100008: Box05
+    100010: Box06
+    100012: Box07
+    100014: Box08
+    100016: Box09
+    100018: Box10
+    100020: Box11
+    100022: Box12
+    100024: Box13
+    100026: Box14
+    100028: //RootNode
+    100030: 'Desk Main '
+    100032: floor
+    100034: Glass
+    100036: mr Area Sp.target
+    100038: Omni01
+    100040: Omni02
+    100042: Puller 02
+    100044: Puller 03
+    100046: Puller 1
+    100048: Pulller fo
+    100050: tabletop
+    100052: Wall01
+    400000: Box01
+    400002: Box02
+    400004: Box03
+    400006: Box04
+    400008: Box05
+    400010: Box06
+    400012: Box07
+    400014: Box08
+    400016: Box09
+    400018: Box10
+    400020: Box11
+    400022: Box12
+    400024: Box13
+    400026: Box14
+    400028: //RootNode
+    400030: 'Desk Main '
+    400032: floor
+    400034: Glass
+    400036: mr Area Sp.target
+    400038: Omni01
+    400040: Omni02
+    400042: Puller 02
+    400044: Puller 03
+    400046: Puller 1
+    400048: Pulller fo
+    400050: tabletop
+    400052: Wall01
+    2300000: Box01
+    2300002: Box02
+    2300004: Box03
+    2300006: Box04
+    2300008: Box05
+    2300010: Box06
+    2300012: Box07
+    2300014: Box08
+    2300016: Box09
+    2300018: Box10
+    2300020: Box11
+    2300022: Box12
+    2300024: Box13
+    2300026: Box14
+    2300028: 'Desk Main '
+    2300030: floor
+    2300032: Glass
+    2300034: Puller 02
+    2300036: Puller 03
+    2300038: Puller 1
+    2300040: Pulller fo
+    2300042: tabletop
+    2300044: Wall01
+    3300000: Box01
+    3300002: Box02
+    3300004: Box03
+    3300006: Box04
+    3300008: Box05
+    3300010: Box06
+    3300012: Box07
+    3300014: Box08
+    3300016: Box09
+    3300018: Box10
+    3300020: Box11
+    3300022: Box12
+    3300024: Box13
+    3300026: Box14
+    3300028: 'Desk Main '
+    3300030: floor
+    3300032: Glass
+    3300034: Puller 02
+    3300036: Puller 03
+    3300038: Puller 1
+    3300040: Pulller fo
+    3300042: tabletop
+    3300044: Wall01
+    4300000: 'Desk Main '
+    4300002: Box01
+    4300004: Box02
+    4300006: Box03
+    4300008: Box04
+    4300010: Box05
+    4300012: tabletop
+    4300014: Box06
+    4300016: Box07
+    4300018: Box08
+    4300020: Box09
+    4300022: Box10
+    4300024: Box11
+    4300026: Box12
+    4300028: Box13
+    4300030: Box14
+    4300032: Glass
+    4300034: floor
+    4300036: Wall01
+    4300038: Puller 1
+    4300040: Puller 02
+    4300042: Puller 03
+    4300044: Pulller fo
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
