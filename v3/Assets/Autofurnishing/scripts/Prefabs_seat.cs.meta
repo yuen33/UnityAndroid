@@ -7,6 +7,6 @@ MonoImporter:
   - Seat: {fileID: 100000, guid: eb2e08fda84b249d2bb443111ba284c5, type: 2}
   - SmallPiece: {instanceID: 0}
   - Plane: {instanceID: 0}
-  executionOrder: 200
+  executionOrder: 0
   icon: {instanceID: 0}
   userData: 
