@@ -98,7 +98,7 @@ public class PopulatingVer7 : MonoBehaviour {
 				if(j!=i){
 					Vector3 Pj=BigPieces[j].collider.bounds.center;//InRoomRetrival.Instance.Tier1Data[j,0];
 					Vector3 Dij=Pi-Pj;
-					AbsDij=AbsDij+ new Vector3(Mathf.Abs(Dij.x),Mathf.Abs(Dij.y),Mathf.Abs(Dij.z));
+//					AbsDij=AbsDij+ new Vector3(Mathf.Abs(Dij.x),Mathf.Abs(Dij.y),Mathf.Abs(Dij.z));
 					//					SumsumOfDij=SumsumOfDij+Mathf.Abs(Dij.x)+Mathf.Abs(Dij.z);
 					SumsumOfDij=SumsumOfDij+Dij.magnitude;
 					
@@ -114,7 +114,7 @@ public class PopulatingVer7 : MonoBehaviour {
 			//			Debug.Log("nearestPointArray["+i+"]="+nearestPointArray[i]);
 			
 			//Write in the inRoomRetrival class
-			InRoomRetrival.Instance.Tier1Data[i,2]=AbsDij;
+//			InRoomRetrival.Instance.Tier1Data[i,2]=AbsDij;
 			//			Debug.Log("InRoomRetrival.Instance.Tier1Data["+i+",2]="+AbsDij);
 		}//for i
 		//		Debug.Log("SumsumOfDij="+SumsumOfDij);
@@ -125,12 +125,12 @@ public class PopulatingVer7 : MonoBehaviour {
 		Debug.Log("******************Scores********************");
 		for(int i=0; i<NumOfBigPiece; i++){
 			//Distance term
-			double DistanceFactor=AbsDij.magnitude;
+//			double DistanceFactor=AbsDij.magnitude;
 			
-			InRoomRetrival.Instance.Tier1Cost[i]=DistanceFactor;
+//			InRoomRetrival.Instance.Tier1Cost[i]=DistanceFactor;
 			Debug.Log("Cube"+i+" score: "+InRoomRetrival.Instance.Tier1Cost[i]);
 		}//for
-		overallScore= SumsumOfDij/NumOfBigPiece;
+		overallScore= 0.01*SumsumOfDij;
 
 		Debug.Log("overallScore="+overallScore);
 		
@@ -206,18 +206,24 @@ public class PopulatingVer7 : MonoBehaviour {
 			Debug.Log("----------------------------------------------------------------lnp="+lnp);
 			Debug.Log("currentScore-lastScore="+(currentScore-lastScore));
 
-			if(lnp>= currentScore-lastScore){
-				isRunning=false;
+			if(lnp>= currentScore-lastScore){//TODO
+//				isRunning=false;
 				rollBack=true;
 			}
+//			if(currentScore-lastScore<0 && Random.value-0.1<0){//TODO
+//				isRunning=false;
+//				rollBack=true;
+//			} 
 		}//if(isRunning)
 		if(rollBack){
 			for(int i=0;i<NumOfBigPiece;i++){
 				BigPieces[i].transform.position=InRoomRetrival.Instance.Tier1Data[i,0];
 			}
 			rollBack=false;
-			isRunning=true;
+//			isRunning=true;
 		}//if rollBack
+
+
 
 	}//Update()
 }

@@ -55,6 +55,7 @@
      <Compile Include="Assets\Autofurnishing\scripts\PopulatingVer5.cs" />
      <Compile Include="Assets\Autofurnishing\scripts\PopulatingVer6.cs" />
      <Compile Include="Assets\Autofurnishing\scripts\PopulatingVer7.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\PopulatingVer8.cs" />
      <Compile Include="Assets\Autofurnishing\scripts\Prefabs_seat.cs" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />

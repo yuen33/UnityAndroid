@@ -16,9 +16,20 @@ public class InRoomRetrival : MonoBehaviour {
 	public static int MAX_NumOfT1=20;
 	public static int MAX_InfoItems=3;
 	public bool[] Tier1Check= new bool[MAX_NumOfT1];
-	public int[] Tier1Overlaps= new int[MAX_NumOfT1];
+	public int[] Tier1Overlaps= new int[MAX_NumOfT1];//useless
+//	public Vector3[] Tier1LastStep= new Vector3[MAX_NumOfT1];
 	public double[] Tier1Cost= new double[MAX_NumOfT1];
-	public Vector3[,] Tier1Data= new Vector3[MAX_NumOfT1,MAX_InfoItems];
+
+	public Vector3[,] Tier1Data= new Vector3[MAX_NumOfT1,MAX_InfoItems];//T1 furniture record[id, 0=center 1=extents] for Start()
+
+//	public float delta=100.0f;
+	public Vector3[] Tier1LastPosition= new Vector3[MAX_NumOfT1];
+	public Vector3[] Tier1GlobalBest= new Vector3[MAX_NumOfT1];
+//	public GameObject BigPiece;
+
+//	void Start(){
+//		BigPiece=GameObject.Find("BigPiece");//not worked
+//	}
 
 
 //	// Use this for initialization

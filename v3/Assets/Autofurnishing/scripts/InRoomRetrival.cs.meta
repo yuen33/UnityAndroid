@@ -2,7 +2,8 @@ fileFormatVersion: 2
 guid: 09ec556575f5845268b32ff2deccf76b
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - BigPiece: {fileID: 100000, guid: e0750bf5493904a868621f139b2bb76e, type: 2}
   executionOrder: -300
   icon: {instanceID: 0}
   userData: 

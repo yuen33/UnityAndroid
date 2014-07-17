@@ -7,6 +7,7 @@ public class PopulatingVer6 : MonoBehaviour {
 	public GameObject BigPiece;//TODO
 	public Vector3 mycubeExtents;//TODO
 	public float delta=10;
+	public double beta=1;
 	
 	public Vector3 offset;//todo
 	public Vector3 roomcenter;
@@ -91,7 +92,7 @@ public class PopulatingVer6 : MonoBehaviour {
 	
 	void prepareCostTerms(){
 		//Calculate the sumOfDij, the number of overlaps and find the nearest
-		SumsumOfDij=0;
+		SumsumOfDij=0;	
 		for(int i=0;i<NumOfBigPiece;i++){
 			AbsDij=new Vector3(0.0f,0.0f,0.0f);//for distance vector sum: from each Pi to Pj
 			Vector3 Pi=BigPieces[i].collider.bounds.center;//InRoomRetrival.Instance.Tier1Data[i,0];
@@ -149,7 +150,7 @@ public class PopulatingVer6 : MonoBehaviour {
 		}//for
 		//		//		overallScore=1.0/(numOfOverlaps+1) * SumsumOfDij;
 		//		overallScore= 1.0/(numOfOverlaps+1)/(numOfOverlaps+1) * SumsumOfDij;
-		overallScore= -5000*numOfOverlaps + SumsumOfDij;
+		overallScore= beta* SumsumOfDij;
 		
 		Debug.Log("overallScore="+overallScore);
 		Debug.Log("numOfOverlaps="+numOfOverlaps);
@@ -225,11 +226,20 @@ public class PopulatingVer6 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.S)){
-			isRunning= !isRunning;
+			isRunning= !isRunning; 
 		}
 		if(isRunning && numOfOverlaps==0){
+			beta++;
+			delta=(float)(delta*0.998);
+
 			lastScore=currentScore;
 			Debug.Log("lastScore="+lastScore);
+
+			recordedScore=currentScore;
+			for(int i=0;i<NumOfBigPiece;i++){
+				InRoomRetrival.Instance.Tier1Data[i,0]=BigPieces[i].collider.bounds.center;
+				InRoomRetrival.Instance.Tier1Data[i,1]=BigPieces[i].collider.bounds.extents;
+			}
 			
 			for(int i=0;i<NumOfBigPiece;i++){
 				move(BigPieces[i]);
@@ -239,18 +249,19 @@ public class PopulatingVer6 : MonoBehaviour {
 			currentScore=calculateCost();
 			Debug.Log("currentScore"+currentScore);
 			
-			if(currentScore>=recordedScore){
-				recordedScore=currentScore;
-				for(int i=0;i<NumOfBigPiece;i++){
-					InRoomRetrival.Instance.Tier1Data[i,0]=BigPieces[i].collider.bounds.center;
-					InRoomRetrival.Instance.Tier1Data[i,1]=BigPieces[i].collider.bounds.extents;
-				}
-			}
+//			if(currentScore>=recordedScore){
+//				recordedScore=currentScore;
+//				for(int i=0;i<NumOfBigPiece;i++){
+//					InRoomRetrival.Instance.Tier1Data[i,0]=BigPieces[i].collider.bounds.center;
+//					InRoomRetrival.Instance.Tier1Data[i,1]=BigPieces[i].collider.bounds.extents;
+//				}
+//			}
 			
 			float lnp= Mathf.Log(Random.value);
 			Debug.Log("----------------------------------------------------------------lnp="+lnp);
 			Debug.Log("currentScore-lastScore="+(currentScore-lastScore));
 			if(lnp>=(currentScore-lastScore)){
+
 				//rollback
 				for(int i=0;i<NumOfBigPiece;i++){
 					BigPieces[i].transform.position=InRoomRetrival.Instance.Tier1Data[i,0];

@@ -1,12 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Autofurnishing/scripts/PopulatingVer7.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Autofurnishing/scripts/PopulatingVer8.cs">
     <Files>
-      <File FileName="Assets/Autofurnishing/scripts/Moving.cs" Line="41" Column="28" />
-      <File FileName="Assets/Autofurnishing/scripts/PopulatingVer7.cs" Line="140" Column="5" />
+      <File FileName="Assets/Autofurnishing/scripts/PopulatingVer6.cs" Line="233" Column="31" />
       <File FileName="Assets/Autofurnishing/scripts/Populating.cs" Line="1" Column="1" />
-      <File FileName="Assets/Autofurnishing/scripts/PopulatingVer5.cs" Line="1" Column="1" />
-      <File FileName="Assets/Autofurnishing/scripts/PopulatingVer6.cs" Line="285" Column="53" />
+      <File FileName="Assets/Autofurnishing/scripts/PopulatingVer8.cs" Line="165" Column="29" />
+      <File FileName="Assets/Autofurnishing/scripts/InRoomRetrival.cs" Line="23" Column="127" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
