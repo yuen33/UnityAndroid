@@ -17,7 +17,9 @@ public class PopulatingVer8 : MonoBehaviour {
 
 	bool isRunning=false;
 	bool rollBack=false;
-	public double beta=1;//supposed to increase
+	public double iterationTimes=0;
+	public double criticalBeta;
+	public double beta;
 	public float step=10;//supposed to decrease
 
 	public Texture2D zero;
@@ -78,6 +80,7 @@ public class PopulatingVer8 : MonoBehaviour {
 		                                      ,transform.rotation);
 		BigPieces[id].rigidbody.rotation= Quaternion.identity;
 		BigPieces[id].rigidbody.freezeRotation = true;
+//		BigPieces[id].rigidbody.constraints = RigidbodyConstraints.FreezePositionY; // RigidbodyConstraints.FreezeRotation;
 
 		//Write in:
 		InRoomRetrival.Instance.Tier1Check[id]=true;
@@ -120,7 +123,7 @@ public class PopulatingVer8 : MonoBehaviour {
 			}//for j
 		}//for i
 
-		currentScore=beta*SumsumOfDij;
+		currentScore= SumsumOfDij;
 
 	}//calculateScore()
 	
@@ -143,6 +146,10 @@ public class PopulatingVer8 : MonoBehaviour {
 		calculateScore();
 		globalBestScore=currentScore;
 
+		//initialise the criticalBeta
+		criticalBeta=NumOfBigPiece*NumOfBigPiece*50;
+//		criticalBeta=NumOfBigPiece*100;
+
 		Debug.Log("Update() Starts...");
 	}//Start()
 
@@ -161,8 +168,19 @@ public class PopulatingVer8 : MonoBehaviour {
 			isRunning=!isRunning;
 		}
 		if(isRunning){
-			beta++;
-			step=(float)(step*0.998);
+			if(step<0.1){
+				isRunning=false;
+				rollBack=true;
+			}
+
+			iterationTimes++;
+
+			if(iterationTimes>criticalBeta){
+				beta=beta+0.01;
+				step=(float)(step*0.998);
+			}else{
+				beta=0.2;
+			}
 
 			lastScore=currentScore;
 			Debug.Log("----------------------------------------------------------------lastScore="+lastScore);
@@ -180,25 +198,36 @@ public class PopulatingVer8 : MonoBehaviour {
 			//calculate the score
 			calculateScore();
 			Debug.Log("----------------------------------------------------------------currentScore="+currentScore);
-			
+
+
+
 			//compare to the global best record
 			if(globalBestScore<currentScore){
 				globalBestScore=currentScore;
+				for(int i=0;i<NumOfBigPiece;i++){
+					InRoomRetrival.Instance.Tier1GlobalBest[i].x=BigPieces[i].transform.position.x;
+					InRoomRetrival.Instance.Tier1GlobalBest[i].y=BigPieces[i].collider.bounds.extents.y;
+					InRoomRetrival.Instance.Tier1GlobalBest[i].z=BigPieces[i].transform.position.z;
+				}
+//				continue;
 			}
+
+
 			
 			//Metropolis-Hasting
 			float lnp= Mathf.Log(Random.value);
 			Debug.Log("lnp="+lnp);
-			Debug.Log("currentScore-lastScore="+(currentScore-lastScore));
-			if(lnp>= currentScore-lastScore){
-				//rollback to lastPosition
+			double deltaScore=beta*(currentScore-lastScore);
+			Debug.Log("currentScore-lastScore="+ deltaScore);
+			if(lnp>= deltaScore){
+				//reset to lastPosition
 				for(int i=0;i<NumOfBigPiece;i++){
 					BigPieces[i].transform.position=InRoomRetrival.Instance.Tier1LastPosition[i];
 				}
 			}//if lnp
 		}
 
-		if(Input.GetKeyDown(KeyCode.Pause)){
+		if(Input.GetKeyDown(KeyCode.P) || rollBack){
 			isRunning=false;
 			for(int i=0;i<NumOfBigPiece;i++){
 				BigPieces[i].transform.position=InRoomRetrival.Instance.Tier1GlobalBest[i];
