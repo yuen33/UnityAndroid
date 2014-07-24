@@ -78,9 +78,9 @@ public class PopulatingVer8 : MonoBehaviour {
 		BigPieces[id]=(GameObject)Instantiate(BigPiece,
 		                                      transform.position+getPosition(BigPiece,id)
 		                                      ,transform.rotation);
-		BigPieces[id].rigidbody.rotation= Quaternion.identity;
 		BigPieces[id].rigidbody.freezeRotation = true;
 //		BigPieces[id].rigidbody.constraints = RigidbodyConstraints.FreezePositionY; // RigidbodyConstraints.FreezeRotation;
+		BigPieces[id].rigidbody.rotation= Quaternion.identity;
 
 		//Write in:
 		InRoomRetrival.Instance.Tier1Check[id]=true;
@@ -129,6 +129,7 @@ public class PopulatingVer8 : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		Random.seed=233;
 		//Get information about the room
 		roomcenter=gameObject.collider.bounds.center;
 		roomextents=gameObject.collider.bounds.extents;
@@ -147,7 +148,8 @@ public class PopulatingVer8 : MonoBehaviour {
 		globalBestScore=currentScore;
 
 		//initialise the criticalBeta
-		criticalBeta=NumOfBigPiece*NumOfBigPiece*50;
+		criticalBeta=NumOfBigPiece*NumOfBigPiece*40;
+//		if(criticalBeta>NumOfBigPiece*100)step=5;
 //		criticalBeta=NumOfBigPiece*100;
 
 		Debug.Log("Update() Starts...");
@@ -161,6 +163,24 @@ public class PopulatingVer8 : MonoBehaviour {
 //		Vector3 newCenter=furniture.collider.bounds.center+step*movingDirection;
 //		furniture.transform.position=newCenter;
 	}
+
+//	int[] getRandomList(int NumOfBigPiece){
+//		List<int> list=new List<int>();
+//		for(int i=0;i<NumOfBigPiece;i++){
+//			list.Add(i);
+//		}
+//		int[] RandomList= new int[NumOfBigPiece];
+//		for (int j=0;j<NumOfBigPiece;j++){
+//			//			Debug.Log("list.Count="+list.Count);
+//			int idx=(int) (Random.value * list.Count);
+//			//			Debug.Log("Remove: list["+idx+"]="+list[idx]);
+//			RandomList[j]=list[idx];
+//			//			Debug.Log("RandomList["+j+"]="+idx);
+//			list.RemoveAt(idx);
+//		}
+//	}
+		
+
 
 	// Update is called once per frame
 	void Update () {
@@ -176,8 +196,9 @@ public class PopulatingVer8 : MonoBehaviour {
 			iterationTimes++;
 
 			if(iterationTimes>criticalBeta){
-				beta=beta+0.01;
+				beta++;
 				step=(float)(step*0.998);
+//				step=(float)10/Mathf.Log((float)(iterationTimes-criticalBeta));
 			}else{
 				beta=0.2;
 			}
@@ -190,10 +211,17 @@ public class PopulatingVer8 : MonoBehaviour {
 				InRoomRetrival.Instance.Tier1LastPosition[i]=BigPieces[i].collider.bounds.center;
 			}//for lastPosition
 			
-			//move
-			for(int i=0;i<NumOfBigPiece;i++){
-				move(BigPieces[i]);
-			}//for move
+//			switch (Random.value %8){
+//			case 1:
+//
+//				break;
+//			default:
+//				//move
+				for(int i=0;i<NumOfBigPiece;i++){
+					move(BigPieces[i]);
+				}//for move
+//				break;
+//			}
 			
 			//calculate the score
 			calculateScore();
@@ -209,22 +237,20 @@ public class PopulatingVer8 : MonoBehaviour {
 					InRoomRetrival.Instance.Tier1GlobalBest[i].y=BigPieces[i].collider.bounds.extents.y;
 					InRoomRetrival.Instance.Tier1GlobalBest[i].z=BigPieces[i].transform.position.z;
 				}
-//				continue;
-			}
-
-
-			
-			//Metropolis-Hasting
-			float lnp= Mathf.Log(Random.value);
-			Debug.Log("lnp="+lnp);
-			double deltaScore=beta*(currentScore-lastScore);
-			Debug.Log("currentScore-lastScore="+ deltaScore);
-			if(lnp>= deltaScore){
-				//reset to lastPosition
-				for(int i=0;i<NumOfBigPiece;i++){
-					BigPieces[i].transform.position=InRoomRetrival.Instance.Tier1LastPosition[i];
-				}
-			}//if lnp
+			}else{
+				//Metropolis-Hasting
+				float lnp= Mathf.Log(Random.value);
+				Debug.Log("lnp="+lnp);
+				double deltaScore=beta*(currentScore-lastScore);
+				Debug.Log("currentScore-lastScore="+ deltaScore);
+				if(lnp>= deltaScore){
+					//reset to lastPosition
+					for(int i=0;i<NumOfBigPiece;i++){
+						BigPieces[i].transform.position=InRoomRetrival.Instance.Tier1LastPosition[i];
+					}
+					iterationTimes--;
+				}//if lnp
+			}//if best... else MH
 		}
 
 		if(Input.GetKeyDown(KeyCode.P) || rollBack){
