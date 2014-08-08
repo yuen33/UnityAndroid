@@ -46,21 +46,27 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Autofurnishing\scripts\InRoomRetrival.cs" />
-     <Compile Include="Assets\Autofurnishing\scripts\Moving.cs" />
-     <Compile Include="Assets\Autofurnishing\scripts\Populating.cs" />
-     <Compile Include="Assets\Autofurnishing\scripts\PopulatingVer2.cs" />
-     <Compile Include="Assets\Autofurnishing\scripts\PopulatingVer3.cs" />
-     <Compile Include="Assets\Autofurnishing\scripts\PopulatingVer4.cs" />
-     <Compile Include="Assets\Autofurnishing\scripts\PopulatingVer5.cs" />
-     <Compile Include="Assets\Autofurnishing\scripts\PopulatingVer6.cs" />
-     <Compile Include="Assets\Autofurnishing\scripts\PopulatingVer7.cs" />
-     <Compile Include="Assets\Autofurnishing\scripts\PopulatingVer8.cs" />
-     <Compile Include="Assets\Autofurnishing\scripts\Prefabs_seat.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\Bed.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\Room.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\Wardrobe.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\oldscripts\InRoomRetrival.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\oldscripts\Moving.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\oldscripts\Populating.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\oldscripts\PopulatingVer2.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\oldscripts\PopulatingVer3.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\oldscripts\PopulatingVer4.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\oldscripts\PopulatingVer5.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\oldscripts\PopulatingVer6.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\oldscripts\PopulatingVer7.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\oldscripts\PopulatingVer8.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\oldscripts\Prefabs_seat.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\oldscripts\RoomAttributes.cs" />
+     <Compile Include="Assets\Autofurnishing\scripts\oldscripts\furnitureAttributes.cs" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Background.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Transparent Vertex Color.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Miscellaneous Shaders\Mobile Detail.shader" />
+     <None Include="Assets\Autofurnishing\scripts\rooms.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap Reflective.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Particles Additive Culled.shader" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Vertex Colored Shaders\Mobile Vertex Colored.shader" />
